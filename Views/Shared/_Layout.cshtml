@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Taller Gorro</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <img src="~/Img/Logo.png" alt="Logo Taller Gorro" height="60px" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("Taller", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+                    @*<li>@Html.ActionLink("Productos Crear", "Create", "Producto")</li>*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos</a>
+                        <div class="dropdown-menu">
+                            @*<a class="dropdown-item">@Html.ActionLink("Productos Crear", "Create", "Producto", null, new { @class = "dropdown-item" })</a>
+                            <a class="dropdown-item">@Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</a>
+                            <a class="dropdown-item">@Html.ActionLink("Marcas de Productos", "Index", "Marca", null, new { @class = "dropdown-item" })</a>*@
+                            @Html.ActionLink("Productos Crear", "Create", "Producto", null, new { @class = "dropdown-item" })<hr />
+                            @Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })<hr />
+                            @Html.ActionLink("Marcas de Productos", "Index", "Marca", null, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Acerca de nosotros", "About", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p> Todos los derechos reservados @DateTime.Now.Year &copy; UTN </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

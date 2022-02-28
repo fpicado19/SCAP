@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Infrastructure.Models.TipoProducto>
+
+@{
+    ViewBag.Title = "Listado de Tipos";
+}
+
+<div class="jumbotron">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <center><h2>Listado de Tipos</h2></center>
+
+    <p>
+        @Html.ActionLink("Nuevo", "Create")@* Texto, ActionController *@
+    </p>
+
+    <div class="row">
+        <div class="col-lg-9">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-active">
+                        <th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descripcionTipo)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="result">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="table-secondary">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descripcionTipo)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.id })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
